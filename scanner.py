@@ -49,8 +49,8 @@ def show_menu(target_ip):
             execute_scan(target_ip, ["-sS"])
             
         elif opcion == "3":
-            print("\n[*] Selección: Escaneo Avanzado (-A -sV -T1 -Pn)")
-            execute_scan(target_ip, ["-A", "-sV", "-T1", "-Pn"])
+            print("\n[*] Selección: Escaneo Avanzado (-A -sV -Pn)")
+            execute_scan(target_ip, ["-A", "-sV", "-Pn"])
             
         elif opcion == "4":
             print("\n[*] Saliendo del módulo de escaneo. ¡Hasta luego!")
