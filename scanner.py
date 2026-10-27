@@ -60,7 +60,7 @@ def show_menu(target_ip):
             print("\n Opción no válida. Por favor, ingrese un número del 1 al 4.")
 
 if __name__ == "__main__":
-    print("=== INICIALIZACIÓN DE SCANNER (RED TEAM) ===")
+    print("Iniciando el script")
     
     # Obtener IP desde argumento de consola o solicitarla al inicio
     if len(sys.argv) > 1:
