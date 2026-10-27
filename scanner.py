@@ -14,23 +14,23 @@ def execute_scan(target_ip, flags_list):
     
     try:
         resultado = subprocess.run(comando, capture_output=True, text=True, check=True)
-        print("=== RESULTADOS DEL ESCANEO ===")
+        print(" RESULTADOS DEL ESCANEO ")
         print(resultado.stdout)
     except subprocess.CalledProcessError as e:
-        print(f"[!] Error durante la ejecución de Nmap: {e}")
+        print(f" Error durante la ejecución de Nmap: {e}")
         if e.stderr:
-            print(f"[!] Detalle del error: {e.stderr}")
+            print(f" Detalle del error: {e.stderr}")
     except FileNotFoundError:
-        print(f"[!] No se encontró el ejecutable de Nmap en la ruta: {NMAP_PATH}")
-        print("[!] Verifique que Nmap esté instalado correctamente en esa ubicación.")
+        print(f" No se encontró el ejecutable de Nmap en la ruta: {NMAP_PATH}")
+        print(" Verifique que Nmap esté instalado correctamente en esa ubicación.")
 
 def show_menu(target_ip):
     """Despliega el menú interactivo de opciones de escaneo."""
     while True:
-        print("\n==============================================")
-        print(f"      MÓDULO DE ESCANEO (RED TEAM)")
-        print(f"      Objetivo actual: {target_ip}")
-        print("==============================================")
+        print(" ")
+        print("Escaneo con nmap")
+        print(f"Objetivo actual: {target_ip}")
+        print(" ")
         print("1. Colocar el comando propio que desee")
         print("2. Ejecutarle un escaneo básico (-sS)")
         print("3. Ejecutarle un escaneo avanzado (-A -sV -T1 -Pn)")
@@ -45,18 +45,19 @@ def show_menu(target_ip):
             execute_scan(target_ip, flags_list)
             
         elif opcion == "2":
-            print("\n[*] Selección: Escaneo Básico TCP SYN (-sS)")
+            print("\n Selección: Escaneo Básico TCP SYN (-sS)")
             execute_scan(target_ip, ["-sS"])
             
         elif opcion == "3":
-            print("\n[*] Selección: Escaneo Avanzado (-A -sV -Pn)")
-            execute_scan(target_ip, ["-A", "-sV", "-Pn"])
+            print("\n Selección: Escaneo Avanzado (-A -sV -Pn)")
+            execute_scan(target_ip, ["-A", "-Pn"])
             
         elif opcion == "4":
-            print("\n[*] Saliendo del módulo de escaneo. ¡Hasta luego!")
+            print(" ")
+            print("Saliendo")
             break
         else:
-            print("\n[!] Opción no válida. Por favor, ingrese un número del 1 al 4.")
+            print("\n Opción no válida. Por favor, ingrese un número del 1 al 4.")
 
 if __name__ == "__main__":
     print("=== INICIALIZACIÓN DE SCANNER (RED TEAM) ===")
